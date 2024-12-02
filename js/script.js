@@ -65,12 +65,40 @@ window.onload = function() {
 				}
 				else if(computerOption === 'rock') {
 					// Play a new round... this will execute recursively until a winner is determined...
+					console.log(`It's a tie!`);
+
 					const humanResponse = getHumanChoice();
 					const computerResponse = getComputerChoice();
 
 					playRound(humanResponse, computerResponse);
 				}
 			}
+			// If human choice is paper...
+			else if(humanOption === 'paper') {
+				if(computerOption === 'rock') {
+					humanScore += 1;
+
+					console.log(`You chose ${humanOption} while the computer chose ${computerOption}... you win!`);
+					console.log(`Paper covers rock.`);
+					console.log(`You: ${humanScore} | Computer: ${computerScore}`);
+				}
+				else if(computerOption === 'scissors') {
+					computerScore += 1;
+
+					console.log(`You chose ${humanOption} while the computer chose ${computerOption}... computer won!`);
+					console.log(`Scissors cut paper.`);
+					console.log(`You: ${humanScore} | Computer: ${computerScore}`);
+				}
+				else if(computerOption === 'paper') {
+					console.log(`It's a tie!`);
+
+					const humanResponse = getHumanChoice();
+					const computerResponse = getComputerChoice();
+
+					playRound(humanResponse, computerResponse);					
+				}
+			}
+
 		} else {
 			console.log('Invalid response... Options are rock, paper or scissors. Try again.');
 			return;
