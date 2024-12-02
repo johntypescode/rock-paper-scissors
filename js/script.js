@@ -126,13 +126,30 @@ window.onload = function() {
 
 		} else {
 			console.log('Invalid response... Options are rock, paper or scissors. Try again.');
-			return;
+
+			const humanResponse = getHumanChoice();
+			const computerResponse = getComputerChoice();
+
+			playRound(humanResponse, computerResponse);		
 		}
 	}
 
 
-	const humanChoice = getHumanChoice();
-	const computerChoice = getComputerChoice();
+	/**
+	 * Play the game.
+	 */
 
-	playRound(humanChoice, computerChoice);
+	function playGame() {
+		// 5 rounds - 1 iteration is 1 round
+		// 1 game = 5 rounds
+		for(let i = 1; i <= 5; i++) {
+			console.log(`ROUND ${i} -------------------`);
+			const humanResponse = getHumanChoice();
+			const computerResponse = getComputerChoice();
+
+			playRound(humanResponse, computerResponse);
+		}
+	}
+
+	playGame();
 };
