@@ -98,6 +98,31 @@ window.onload = function() {
 					playRound(humanResponse, computerResponse);					
 				}
 			}
+			// If human choice is scissors...
+			else if(humanOption === 'scissors') {
+				if(computerOption === 'rock') {
+					computerScore += 1;
+
+					console.log(`You chose ${humanOption} while the computer chose ${computerOption}... computer won!`);
+					console.log(`Rock breaks scissors.`);
+					console.log(`You: ${humanScore} | Computer: ${computerScore}`);
+				}
+				else if(computerOption === 'paper') {
+					humanScore += 1;
+
+					console.log(`You chose ${humanOption} while the computer chose ${computerOption}... you win!`);
+					console.log(`Scissors cut paper.`);
+					console.log(`You: ${humanScore} | Computer: ${computerScore}`);
+				}
+				else if(computerOption === 'scissors') {
+					console.log(`It's a tie!`);
+
+					const humanResponse = getHumanChoice();
+					const computerResponse = getComputerChoice();
+
+					playRound(humanResponse, computerResponse);						
+				}
+			}
 
 		} else {
 			console.log('Invalid response... Options are rock, paper or scissors. Try again.');
