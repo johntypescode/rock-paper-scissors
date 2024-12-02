@@ -26,11 +26,16 @@ window.onload = function() {
 	 * Get human user's choices.
 	 */
 	function getHumanChoice() {
-		return prompt('Please select one: rock, paper or scissors...', '');
+		const humanResponse = prompt('Please select one: rock, paper or scissors...', '');
+
+		/**
+		 * Apply toLowerCase() to the human response to add support for case-insensitivity.
+		 * (i.e. 'Paper' is different than 'paper', 'ROCK' is different than 'rock', etc.)
+		 */
+		return humanResponse.toLowerCase();
 	}
 
-	// Run a test to see if everything is working as it should...
 	const humanChoice = getHumanChoice();
 	const computerChoice = getComputerChoice();
-	console.log(`You chose ${humanChoice} while computer chose ${computerChoice}.`);
+
 };
