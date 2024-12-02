@@ -4,9 +4,6 @@ window.onload = function() {
 	let humanScore = 0;
 	let computerScore = 0;
 
-	// Keep track of the round number
-	let roundNumber = 1;
-
 	// Options that can be played
 	const gameOptions = ['rock', 'paper', 'scissors'];
 
